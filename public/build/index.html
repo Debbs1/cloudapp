@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f1f1f1">
+    <meta name="description" content="cloud app the cool weather app">
+    <title>Weather App</title>
+    <script src='fontawesome.js'></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="container" class="container mt-2 shadow-2xl rounded-lg max-w-xl mx-auto px-4"
+        style="background-image: url('day.jpg'); background-size:cover; background-attachment:center; background-repeat:no-repeat; background-position:bottom;">
+        <div id="newBody">
+
+        </div>
+
+        <div>
+            <form id="search-form">
+                <input id="newCity" class="py-2 text-black px-4 my-10 font-Risque" type="text"
+                    placeholder="Enter City...">
+                <input class="bg-blue-500 hover:bg-white hover:text-blue py-2 px-4 rounded-lg text-black" type="submit"
+                    value="SEARCH">
+
+            </form>
+        </div>
+        <div>
+            <!-- <p id="alert" class="font-Risque py-5 text-right text-white">YOU ARE VIEWING OFFLINE RESULTS</p> -->
+        </div>
+    </div>
+
+    <script src="request.js"></script>
+    <script src="index.js"></script>
+    <noscript>
+        Your browser does not support JavaScript!
+    </noscript>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.20.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.20.0/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+</body>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker.js')
+                .then((reg) => {
+                    console.log('Service worker registered.', reg);
+                });
+        });
+    }
+</script>
+
+</html>
